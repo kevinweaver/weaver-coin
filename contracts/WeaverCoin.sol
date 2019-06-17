@@ -1,15 +1,14 @@
-pragma solidity ^0.5.2;
+pragma solidity >=0.4.21 <0.6.0;
 
 import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
-import "openzeppelin-solidity/contracts/token/ERC20/ERC20Detailed.sol";
 
-contract WeaverCoin is ERC20, ERC20Detailed {
-  string public constant NAME = 'WeaverCoin';
-  string public constant SYMBOL = 'WEAV';
-  uint8 public constant DECIMALS = 8;
-  uint constant TOTAL_SUPPLY = 300;
+contract WeaverCoin is ERC20 {
+    string public name = "WeaverCoin";
+    string public symbol = "WC";
+    uint public decimals = 2;
+    uint public INITIAL_SUPPLY = 100;
 
-  constructor () public ERC20Detailed(NAME, SYMBOL, DECIMALS){
-    _mint(msg.sender, TOTAL_SUPPLY);
-  }
+    constructor() public {
+        _mint(msg.sender, INITIAL_SUPPLY);
+    }
 }
